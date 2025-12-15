@@ -3,8 +3,8 @@ import joblib
 import streamlit as st
 
 
-model_path = r"C:\Users\LENOVO\Desktop\sk\message_model.pkl"
-vectorizer_path = r"C:\Users\LENOVO\Desktop\sk\message_vectorizer.pkl"
+model_path = "message_model.pkl"
+vectorizer_path = "message_vectorizer.pkl"
 model = joblib.load(model_path)
 vectorizer = joblib.load(vectorizer_path)
 
@@ -22,5 +22,6 @@ if st.button("emotion"):
     converted_sample_data = vectorizer.transform(sample_data)
 
     make_recommendation = model.predict(converted_sample_data)
+
 
     st.success(f"emotion: {make_recommendation[0]}")
